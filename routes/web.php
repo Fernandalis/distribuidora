@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function() {
-    echo 'Olá';
-});
+// Route::get('/', function() {
+//     echo 'Olá';
+// });
 
-route::view('/teste', 'sobre');
+route::view('/', 'home');
