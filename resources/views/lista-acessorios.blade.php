@@ -1,5 +1,5 @@
 <x-base-layout>
-   <!-- Nav -->
+    <!-- Nav -->
 <div class="bg-blue-100">
   <div class="justify-between sm:gap-x-3 py-3 px-4 sm:px-6 lg:px-10 overflow-visible transition-all sm:block">
     <div class="mx-40 flex sm:flex-row sm:gap-x-6">
@@ -17,7 +17,7 @@
 
       <!-- Produtos e Acessórios com dropdown -->
       <div class="relative group">
-        <a class="mx-8 font-medium text-sm text-blue-600 hover:text-blue-600 cursor-pointer">
+        <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600 cursor-pointer">
           Produtos e Acessórios
         </a>
         <!-- Dropdown -->
@@ -26,111 +26,43 @@
               transform translate-y-2 transition-all duration-200 z-50">
 
           <a href="{{route('lista-produtos')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">Produtos</a>
-          <a href="{{route('lista-acessorios')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">Acessórios</a>
+          <a href="{{route('lista-acessorios')}}" class="block px-4 py-2 text-sm text-blue-600 hover:bg-blue-100">Acessórios</a>
         </div>
       </div>
 
       <!-- Outros links -->
-      <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="#">Marcas</a>
-      <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="#">Localização</a>
-      <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="#">Blog</a>
+      <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="{{route('lista-marcas')}}">Marcas</a>
+      <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="{{route('localizacao')}}">Localização</a>
+      <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="{{route('lista-blogs')}}">Blog</a>
     </div>
   </div>
 </div>
 <!-- End Nav -->
 
 <!-- ////////////////INICIO DA LISTA DE ACESSORIOS/////////// -->
-@foreach($acessorios as $acessorio)
 <!-- Icon Blocks -->
-<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+<div class="max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8 lg:py-8 mx-auto">
+ <div> <h1 class="mb-6 mx-4 font-semibold">ACESSÓRIOS</h1> </div>
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 items-center gap-6 md:gap-10">
     <!-- Card -->
-    <div class="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900">
-      <div class="flex items-center gap-x-4 mb-3">
-        <div class="inline-flex justify-center items-center size-15.5 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
-          <img src="{{$acessorio->imagem}}" alt="">
-        </div>
-        <div class="shrink-0">
-          <h1 class="block text-lg font-semibold text-gray-800 dark:text-white">{{$acessorio->nome}}</h1>
-        </div>
+    @foreach($acessorios as $acessorio)
+  <a href="{{ route('detalhes-acessorios', $acessorio->id) }}" 
+     class="block size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900 hover:border-2 border-transparent hover:border-blue-500 transition duration-300">
+    
+    <div class="flex items-center gap-x-4 mb-3">
+      <div class="inline-flex justify-center items-center size-15.5 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
+        <img src="{{ $acessorio->imagem }}" alt="">
       </div>
-      <p class="text-gray-600 dark:text-neutral-400">The simplest way to keep your portfolio always up-to-date.</p>
-    </div>
-    <!-- End Card -->
-
-    <!-- Card -->
-    <div class="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900">
-      <div class="flex items-center gap-x-4 mb-3">
-        <div class="inline-flex justify-center items-center size-15.5 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
-          <img src="{{$acessorio->imagem}}" alt="">
-        </div>
-        <div class="shrink-0">
-          <h3 class="block text-lg font-semibold text-gray-800 dark:text-white">{{$acessorio->nome}}</h3>
-        </div>
+      <div class="shrink-0">
+        <h1 class="block text-lg font-semibold text-gray-800 dark:text-white">{{ $acessorio->nome }}</h1>
       </div>
-      <p class="text-gray-600 dark:text-neutral-400">New design projects delivered to your inbox each morning.</p>
     </div>
-    <!-- End Card -->
-
-    <!-- Card -->
-    <div class="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900">
-      <div class="flex items-center gap-x-4 mb-3">
-        <div class="inline-flex justify-center items-center size-15.5 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
-          <img src="{{$acessorio->imagem}}" alt="">
-        </div>
-        <div class="shrink-0">
-          <h3 class="block text-lg font-semibold text-gray-800 dark:text-white">{{$acessorio->nome}}</h3>
-        </div>
-      </div>
-      <p class="text-gray-600 dark:text-neutral-400">Get your goods in front of millions of potential customers with ease.</p>
-    </div>
-    <!-- End Card -->
-
-    <!-- Card -->
-    <div class="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900">
-      <div class="flex items-center gap-x-4 mb-3">
-        <div class="inline-flex justify-center items-center size-15.5 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
-          <img src="{{$acessorio->imagem}}" alt="">
-        </div>
-        <div class="shrink-0">
-          <h3 class="block text-lg font-semibold text-gray-800 dark:text-white">{{$acessorio->nome}}</h3>
-        </div>
-      </div>
-      <p class="text-gray-600 dark:text-neutral-400">New design projects delivered to your inbox each morning.</p>
-    </div>
-    <!-- End Card -->
-
-    <!-- Card -->
-    <div class="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900">
-      <div class="flex items-center gap-x-4 mb-3">
-        <div class="inline-flex justify-center items-center size-15.5 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
-          <img src="{{$acessorio->imagem}}" alt="">
-        </div>
-        <div class="shrink-0">
-          <h3 class="block text-lg font-semibold text-gray-800 dark:text-white">{{$acessorio->nome}}</h3>
-        </div>
-      </div>
-      <p class="text-gray-600 dark:text-neutral-400">Get your goods in front of millions of potential customers with ease.</p>
-    </div>
-    <!-- End Card -->
-
-    <!-- Card -->
-    <div class="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900">
-      <div class="flex items-center gap-x-4 mb-3">
-        <div class="inline-flex justify-center items-center size-15.5 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
-          <img src="{{$acessorio->imagem}}" alt="">
-        </div>
-        <div class="shrink-0">
-          <h3 class="block text-lg font-semibold text-gray-800 dark:text-white">{{$acessorio->nome}}</h3>
-        </div>
-      </div>
-      <p class="text-gray-600 dark:text-neutral-400">The simplest way to keep your portfolio always up-to-date.</p>
-    </div>
-    <!-- End Card -->
+  </a>
+@endforeach
   </div>
 </div>
 <!-- End Icon Blocks -->
-@endforeach
+
 <!-- ////////////////FIM DA LISTA DE ACESSORIOS//////////////// -->
 
 <!-- INICIO MENU INFERIOR -->
@@ -147,31 +79,31 @@
       <div class="mt-3 grid space-y-3 text-sm">
         <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="{{route('quem')}}">Quem Somos</a></p>
         <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Produtos e Acessórios</a></p>
-        <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Marcas</a></p>
+        <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="{{route('lista-marcas')}}">Marcas</a></p>
       </div>
     </div>
     <!-- End Col -->
     <div class="my-15 mx-15">
       <h4 class="text-xs font-semibold text-gray-900 uppercase dark:text-neutral-100">Informações</h4>
       <div class="mt-3 grid space-y-3 text-sm">
-        <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Localização</a></p>
-        <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Blog</a></p>
+        <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="{{route('localizacao')}}">Localização</a></p>
+        <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="{{route('lista-blogs')}}">Blog</a></p>
       </div>
     </div>
     <!-- End Col -->
     <div class="my-15 mx-10">
       <div class="mt-3 grid space-y-3 text-sm">
-        <p><a class="text-xs font-semibold text-gray-900 uppercase dark:text-neutral-100 mx-3" href="#">Endereço</a></p>
-        <p><a class="inline-flex gap-x-2 text-black hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Rua A, Bairro B,</a></p>
-        <p><a class="inline-flex gap-x-2 text-black hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200 mx-5 " href="#">Nº 123</a></p>
+        <p class="text-xs font-semibold text-gray-900 uppercase dark:text-neutral-100 mx-3" href="{{route('localizacao')}}">Endereço</p>
+        <p class="inline-flex gap-x-2 text-black hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="{{route('localizacao')}}">Rua A, Bairro B,</p>
+        <p class="inline-flex gap-x-2 text-black hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200 mx-5 " href="{{route('localizacao')}}">Nº 123</p>
       </div>
     </div>
     <!-- End Col -->
     <div class="my-15">
       <div class="mt-3 grid space-y-3 text-sm">
-        <p><a class="text-xs font-semibold text-gray-900 uppercase dark:text-neutral-100 mx-4" href="#">CONTATO</a></p>
-        <p><a class="inline-flex gap-x-2 text-black hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">(15) 99709-2176</a></p>
-        <p><a class="inline-flex gap-x-2 text-black hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">(15) 3259-3180</a></p>
+        <p class="text-xs font-semibold text-gray-900 uppercase dark:text-neutral-100 mx-4" >CONTATO</p>
+        <p class="inline-flex gap-x-2 text-black " >(15) 99709-2176</p>
+        <p class="inline-flex gap-x-2 text-black dark:focus:text-neutral-200" >(15) 3259-3180</p>
       </div>
     </div>
     <!-- End Col -->
@@ -180,5 +112,4 @@
    
 </footer>
 <!-- ========== END FOOTER ========== -->
-
 </x-base-layout>

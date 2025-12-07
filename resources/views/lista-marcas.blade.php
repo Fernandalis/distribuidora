@@ -25,13 +25,13 @@
               opacity-0 group-hover:opacity-100 group-hover:translate-y-0 
               transform translate-y-2 transition-all duration-200 z-50">
 
-          <a href="{{route('lista-produtos')}}" class="block px-4 py-2 text-sm text-blue-600 hover:bg-blue-100">Produtos</a>
+          <a href="{{route('lista-produtos')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">Produtos</a>
           <a href="{{route('lista-acessorios')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">Acessórios</a>
         </div>
       </div>
 
       <!-- Outros links -->
-      <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="{{route('lista-marcas')}}">Marcas</a>
+      <a class="mx-8 font-medium text-sm text-blue-600 hover:text-blue-600" href="{{route('lista-marcas')}}">Marcas</a>
       <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="{{route('localizacao')}}">Localização</a>
       <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="{{route('lista-blogs')}}">Blog</a>
     </div>
@@ -39,32 +39,38 @@
 </div>
 <!-- End Nav -->
 
-<!-- ////////////////INICIO DA LISTA DE PRODUTOS/////////// -->
+<!-- ////////////////INICIO DA LISTA DE MARCAS/////////// -->
 
 <!-- Icon Blocks -->
-<div class="max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8 lg:py-8 mx-auto">
- <div> <h1 class="mb-6 mx-4 font-semibold">PRODUTOS</h1> </div>
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 items-center gap-6 md:gap-10">
-    <!-- Card -->
-    @foreach($produtos as $produto)
-  <a href="{{ route('detalhes-produtos', $produto->id) }}" 
-     class="block size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900 hover:border-2 border-transparent hover:border-blue-500 transition duration-300">
-    
-    <div class="flex items-center gap-x-4 mb-3">
-      <div class="inline-flex justify-center items-center size-30 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
-        <img class="h-30 object-cover" src="{{ $produto->categoria->imagem }}" alt="">
+<div class="max-w-[85rem] px-4 py-4 sm:px-6 lg:px-8 lg:py-6 mx-35">
+    <h1 class="mb-5 mx-5 font-semibold">Marcas com as quais trabalhamos:</h1>
+  <!-- Grid -->
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-5">
+    <!-- Icon Block -->
+     @foreach($marcas as $marcas)
+<a href="{{ route('detalhes-marcas', $marcas->id) }}" class="block size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900">
+    <div class="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700  hover:border-2 hover:border-blue-500 transition duration-300">
+      <!-- Icon -->
+      <div class="flex justify-center items-center size-40 bg-linear-to-br rounded-lg mx-10 items-center">
+        <img src="{{ $marcas->logo }}" alt="">
       </div>
-      <div class="shrink-0">
-        <h1 class="block text-lg font-semibold text-gray-800 dark:text-white">{{ $produto->categoria->nome }}</h1>
+      <!-- End Icon -->
+
+      <div class="mt-3">
+        <h3 class="items-center text-sm sm:text-lg font-semibold text-gray-800 dark:text-neutral-200 leading-tight">
+          {{ $marcas->nome }}
+        </h3>
       </div>
     </div>
-  </a>
+</a>
+    <!-- End Icon Block -->
 @endforeach
-  </div>
+</div>
+  <!-- End Grid -->
 </div>
 <!-- End Icon Blocks -->
 
-<!-- ////////////////FIM DA LISTA DE PRODUTOS//////////////// -->
+<!-- ////////////////FIM DA LISTA DE MARCAS//////////////// -->
 
 <!-- INICIO MENU INFERIOR -->
 <!-- ========== FOOTER ========== -->

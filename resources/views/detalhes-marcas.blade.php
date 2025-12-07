@@ -1,5 +1,5 @@
 <x-base-layout>
-      <!-- Nav -->
+    <!-- Nav -->
 <div class="bg-blue-100">
   <div class="justify-between sm:gap-x-3 py-3 px-4 sm:px-6 lg:px-10 overflow-visible transition-all sm:block">
     <div class="mx-40 flex sm:flex-row sm:gap-x-6">
@@ -25,13 +25,13 @@
               opacity-0 group-hover:opacity-100 group-hover:translate-y-0 
               transform translate-y-2 transition-all duration-200 z-50">
 
-          <a href="{{route('lista-produtos')}}" class="block px-4 py-2 text-sm text-blue-600 hover:bg-blue-100">Produtos</a>
+          <a href="{{route('lista-produtos')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">Produtos</a>
           <a href="{{route('lista-acessorios')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">Acessórios</a>
         </div>
       </div>
 
       <!-- Outros links -->
-      <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="{{route('lista-marcas')}}">Marcas</a>
+      <a class="mx-8 font-medium text-sm text-blue-600 hover:text-blue-600" href="{{route('lista-marcas')}}">Marcas</a>
       <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="{{route('localizacao')}}">Localização</a>
       <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="{{route('lista-blogs')}}">Blog</a>
     </div>
@@ -39,32 +39,31 @@
 </div>
 <!-- End Nav -->
 
-<!-- ////////////////INICIO DA LISTA DE PRODUTOS/////////// -->
+<!-- ////////////////INICIO DA DETALHES DE MARCAS/////////// -->
 
-<!-- Icon Blocks -->
-<div class="max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8 lg:py-8 mx-auto">
- <div> <h1 class="mb-6 mx-4 font-semibold">PRODUTOS</h1> </div>
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 items-center gap-6 md:gap-10">
-    <!-- Card -->
-    @foreach($produtos as $produto)
-  <a href="{{ route('detalhes-produtos', $produto->id) }}" 
-     class="block size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900 hover:border-2 border-transparent hover:border-blue-500 transition duration-300">
-    
-    <div class="flex items-center gap-x-4 mb-3">
-      <div class="inline-flex justify-center items-center size-30 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
-        <img class="h-30 object-cover" src="{{ $produto->categoria->imagem }}" alt="">
-      </div>
-      <div class="shrink-0">
-        <h1 class="block text-lg font-semibold text-gray-800 dark:text-white">{{ $produto->categoria->nome }}</h1>
-      </div>
-    </div>
-  </a>
-@endforeach
+<!-- Profile -->
+<div class="flex items-center gap-x-3 mx-50 my-10">
+  <div class="shrink-0">
+    <img class="shrink-0 size-16 rounded-full object-contain border border-blue-600" src="{{$marcas->logo}}" alt="">
+  </div>
+
+  <div class="grow">
+    <h1 class="text-lg font-medium text-gray-800 dark:text-neutral-200">
+      {{$marcas->nome}}
+    </h1>
   </div>
 </div>
-<!-- End Icon Blocks -->
+<!-- End Profile -->
 
-<!-- ////////////////FIM DA LISTA DE PRODUTOS//////////////// -->
+<!-- About -->
+<div class="mt-8 mx-50 mb-20">
+  <p class="text-sm text-gray-800 dark:text-neutral-400">
+    {{$marcas->descricao}}
+  </p>
+</div>
+<!-- End About -->
+
+<!-- ////////////////FIM DA DETALHES DE MARCAS//////////////// -->
 
 <!-- INICIO MENU INFERIOR -->
 <!-- ========== FOOTER ========== -->

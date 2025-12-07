@@ -1,5 +1,5 @@
 <x-base-layout>
-  <!-- Nav -->
+    <!-- Nav -->
 <div class="bg-blue-100">
   <div class="justify-between sm:gap-x-3 py-3 px-4 sm:px-6 lg:px-10 overflow-visible transition-all sm:block">
     <div class="mx-40 flex sm:flex-row sm:gap-x-6">
@@ -13,7 +13,7 @@
       </a>
 
       <!-- Quem Somos -->
-      <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="{{route('quem')}}">Quem Somos</a>
+      <a class="mx-8 font-medium text-sm text-blue-600 hover:text-blue-600" href="{{route('quem')}}">Quem Somos</a>
 
       <!-- Produtos e Acessórios com dropdown -->
       <div class="relative group">
@@ -31,9 +31,9 @@
       </div>
 
       <!-- Outros links -->
-      <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="#">Marcas</a>
-      <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="#">Localização</a>
-      <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="#">Blog</a>
+      <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="{{route('lista-marcas')}}">Marcas</a>
+      <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="{{route('localizacao')}}">Localização</a>
+      <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="{{route('lista-blogs')}}">Blog</a>
     </div>
   </div>
 </div>
@@ -77,31 +77,31 @@
       <div class="mt-3 grid space-y-3 text-sm">
         <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="{{route('quem')}}">Quem Somos</a></p>
         <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Produtos e Acessórios</a></p>
-        <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Marcas</a></p>
+        <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="{{route('lista-marcas')}}">Marcas</a></p>
       </div>
     </div>
     <!-- End Col -->
     <div class="my-15 mx-15">
       <h4 class="text-xs font-semibold text-gray-900 uppercase dark:text-neutral-100">Informações</h4>
       <div class="mt-3 grid space-y-3 text-sm">
-        <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Localização</a></p>
-        <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Blog</a></p>
+        <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="{{route('localizacao')}}">Localização</a></p>
+        <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="{{route('lista-blogs')}}">Blog</a></p>
       </div>
     </div>
     <!-- End Col -->
     <div class="my-15 mx-10">
       <div class="mt-3 grid space-y-3 text-sm">
-        <p><a class="text-xs font-semibold text-gray-900 uppercase dark:text-neutral-100 mx-3" href="#">Endereço</a></p>
-        <p><a class="inline-flex gap-x-2 text-black hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Rua A, Bairro B,</a></p>
-        <p><a class="inline-flex gap-x-2 text-black hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200 mx-5 " href="#">Nº 123</a></p>
+        <p class="text-xs font-semibold text-gray-900 uppercase dark:text-neutral-100 mx-3" href="{{route('localizacao')}}">Endereço</p>
+        <p class="inline-flex gap-x-2 text-black hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="{{route('localizacao')}}">Rua A, Bairro B,</p>
+        <p class="inline-flex gap-x-2 text-black hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200 mx-5 " href="{{route('localizacao')}}">Nº 123</p>
       </div>
     </div>
     <!-- End Col -->
     <div class="my-15">
       <div class="mt-3 grid space-y-3 text-sm">
-        <p><a class="text-xs font-semibold text-gray-900 uppercase dark:text-neutral-100 mx-4" href="#">CONTATO</a></p>
-        <p><a class="inline-flex gap-x-2 text-black hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">(15) 99709-2176</a></p>
-        <p><a class="inline-flex gap-x-2 text-black hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">(15) 3259-3180</a></p>
+        <p class="text-xs font-semibold text-gray-900 uppercase dark:text-neutral-100 mx-4" >CONTATO</p>
+        <p class="inline-flex gap-x-2 text-black " >(15) 99709-2176</p>
+        <p class="inline-flex gap-x-2 text-black dark:focus:text-neutral-200" >(15) 3259-3180</p>
       </div>
     </div>
     <!-- End Col -->

@@ -25,7 +25,7 @@
               opacity-0 group-hover:opacity-100 group-hover:translate-y-0 
               transform translate-y-2 transition-all duration-200 z-50">
 
-          <a href="{{route('lista-produtos')}}" class="block px-4 py-2 text-sm text-blue-600 hover:bg-blue-100">Produtos</a>
+          <a href="{{route('lista-produtos')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">Produtos</a>
           <a href="{{route('lista-acessorios')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">Acessórios</a>
         </div>
       </div>
@@ -33,38 +33,47 @@
       <!-- Outros links -->
       <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="{{route('lista-marcas')}}">Marcas</a>
       <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="{{route('localizacao')}}">Localização</a>
-      <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600" href="{{route('lista-blogs')}}">Blog</a>
+      <a class="mx-8 font-medium text-sm text-blue-600 hover:text-blue-600" href="{{route('lista-blogs')}}">Blog</a>
     </div>
   </div>
 </div>
 <!-- End Nav -->
 
-<!-- ////////////////INICIO DA LISTA DE PRODUTOS/////////// -->
+<!-- ////////////////INICIO DA LISTA DE BLOGS/////////// -->
 
-<!-- Icon Blocks -->
-<div class="max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8 lg:py-8 mx-auto">
- <div> <h1 class="mb-6 mx-4 font-semibold">PRODUTOS</h1> </div>
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 items-center gap-6 md:gap-10">
-    <!-- Card -->
-    @foreach($produtos as $produto)
-  <a href="{{ route('detalhes-produtos', $produto->id) }}" 
-     class="block size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900 hover:border-2 border-transparent hover:border-blue-500 transition duration-300">
-    
-    <div class="flex items-center gap-x-4 mb-3">
-      <div class="inline-flex justify-center items-center size-30 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
-        <img class="h-30 object-cover" src="{{ $produto->categoria->imagem }}" alt="">
-      </div>
-      <div class="shrink-0">
-        <h1 class="block text-lg font-semibold text-gray-800 dark:text-white">{{ $produto->categoria->nome }}</h1>
-      </div>
-    </div>
-  </a>
-@endforeach
+<!-- Card Blog -->
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <!-- Title -->
+  <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+    <h2 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white">Blog</h2>
+    <p class="mt-1 text-gray-600 dark:text-neutral-400">Artigos de conscientização e conhecimento.</p>
   </div>
-</div>
-<!-- End Icon Blocks -->
+  <!-- End Title -->
 
-<!-- ////////////////FIM DA LISTA DE PRODUTOS//////////////// -->
+  <!-- Grid -->
+  <div class=" mx-50 grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
+    <!-- Card -->
+     @foreach($blogs as $blog)
+    <a class="group border-transparent hover:border-2 hover:border-blue-500 transition duration-300 focus:outline-hidden focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-gray-200 dark:focus:bg-white" href="{{ route('detalhes-blogs', $blog->id) }}">
+      <div class="aspect-w-16 aspect-h-10">
+        <img class="w-50 object-contain rounded-xl" src="{{ $blog->imagem }}" alt="">
+      </div>
+      <h3 class="mt-5 text-xl text-gray-800 dark:text-neutral-300 dark:hover:text-white">
+        {{ $blog->titulo }}
+      </h3>
+      <p class="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold text-blue-500 dark:text-neutral-200">
+        Learn more
+        <svg class="shrink-0 size-4 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </p>
+    </a>
+@endforeach
+    <!-- End Card -->
+  </div>
+  <!-- End Grid -->
+</div>
+<!-- End Card Blog -->
+
+<!-- ////////////////FIM DA LISTA DE BLOGS//////////////// -->
 
 <!-- INICIO MENU INFERIOR -->
 <!-- ========== FOOTER ========== -->

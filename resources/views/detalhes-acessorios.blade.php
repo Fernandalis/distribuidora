@@ -1,4 +1,5 @@
 <x-base-layout>
+
       <!-- Nav -->
 <div class="bg-blue-100">
   <div class="justify-between sm:gap-x-3 py-3 px-4 sm:px-6 lg:px-10 overflow-visible transition-all sm:block">
@@ -17,7 +18,7 @@
 
       <!-- Produtos e Acessórios com dropdown -->
       <div class="relative group">
-        <a class="mx-8 font-medium text-sm text-gray-800 hover:text-blue-600 cursor-pointer">
+        <a class="mx-8 font-medium text-sm text-blue-600 hover:text-blue-600 cursor-pointer">
           Produtos e Acessórios
         </a>
         <!-- Dropdown -->
@@ -25,7 +26,7 @@
               opacity-0 group-hover:opacity-100 group-hover:translate-y-0 
               transform translate-y-2 transition-all duration-200 z-50">
 
-          <a href="{{route('lista-produtos')}}" class="block px-4 py-2 text-sm text-blue-600 hover:bg-blue-100">Produtos</a>
+          <a href="{{route('lista-produtos')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">Produtos</a>
           <a href="{{route('lista-acessorios')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">Acessórios</a>
         </div>
       </div>
@@ -39,32 +40,78 @@
 </div>
 <!-- End Nav -->
 
-<!-- ////////////////INICIO DA LISTA DE PRODUTOS/////////// -->
+<!-- ////////////////INICIO DETALHES ACESSÓRIOS///////////////////// -->
+<!-- Features -->
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <div class="relative p-6 md:p-16">
+    <!-- Grid -->
+    <div class="relative z-10 lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
+      <div class="mb-10 lg:mb-0 lg:col-span-6 lg:col-start-8 lg:order-2 ">
+        <h2 class="text-2xl text-gray-800 font-bold sm:text-3xl dark:text-neutral-200">
+          {{$acessorios->nome}}
+        </h2>
 
-<!-- Icon Blocks -->
-<div class="max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8 lg:py-8 mx-auto">
- <div> <h1 class="mb-6 mx-4 font-semibold">PRODUTOS</h1> </div>
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 items-center gap-6 md:gap-10">
-    <!-- Card -->
-    @foreach($produtos as $produto)
-  <a href="{{ route('detalhes-produtos', $produto->id) }}" 
-     class="block size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900 hover:border-2 border-transparent hover:border-blue-500 transition duration-300">
-    
-    <div class="flex items-center gap-x-4 mb-3">
-      <div class="inline-flex justify-center items-center size-30 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
-        <img class="h-30 object-cover" src="{{ $produto->categoria->imagem }}" alt="">
+        <!-- Tab Navs -->
+        <nav class="grid gap-4 mt-5 md:mt-10" aria-label="Tabs" role="tablist" aria-orientation="vertical">
+          <button type="button" class="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 p-4 md:p-5 rounded-xl dark:hs-tab-active:bg-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 active" id="tabs-with-card-item-1" aria-selected="true" data-hs-tab="#tabs-with-card-1" aria-controls="tabs-with-card-1" role="tab">
+            <span class="flex gap-x-6">
+              <span class="grow">
+                <span class="block text-lg font-semibold hs-tab-active:text-blue-600 text-gray-800 dark:hs-tab-active:text-blue-500 dark:text-neutral-200">Descrição</span>
+                <span class="block mt-1 text-gray-800 dark:hs-tab-active:text-gray-200 dark:text-neutral-200">{{$acessorios->descricao}}</span>
+              </span>
+            </span>
+          </button>
+        </nav>
+        <!-- End Tab Navs -->
+
+<!-- Tab Navs -->
+        <nav class="grid gap-4 mt-5 md:mt-10" aria-label="Tabs" role="tablist" aria-orientation="vertical">
+          <button type="button" class="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 p-4 md:p-5 rounded-xl dark:hs-tab-active:bg-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 active" id="tabs-with-card-item-1" aria-selected="true" data-hs-tab="#tabs-with-card-1 " aria-controls="tabs-with-card-1" role="tab">
+            <span class="flex gap-x-6">
+              <span class="grow">
+                <span class="block text-lg font-semibold hs-tab-active:text-blue-600 text-gray-800 dark:hs-tab-active:text-blue-500 dark:text-neutral-200">Preço</span>
+                <span class="block mt-1 text-gray-800 dark:hs-tab-active:text-gray-200 dark:text-neutral-200">{{$acessorios->precoun}}</span>
+              </span>
+            </span>
+          </button>
+        </nav>
+        <!-- End Tab Navs -->
+
       </div>
-      <div class="shrink-0">
-        <h1 class="block text-lg font-semibold text-gray-800 dark:text-white">{{ $produto->categoria->nome }}</h1>
+      <!-- End Col -->
+
+      <div class="lg:col-span-6">
+        <div class="relative">
+          <!-- Tab Content -->
+          <div>
+            <div id="tabs-with-card-1" role="tabpanel" aria-labelledby="tabs-with-card-item-1">
+              <img class=" w-100 mx-10 grow shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20" src="{{$acessorios->imagem}}" alt="Features Image">
+            </div>
+
+            <div id="tabs-with-card-2" class="hidden" role="tabpanel" aria-labelledby="tabs-with-card-item-2">
+              <img class="shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20" src="https://images.unsplash.com/photo-1665686306574-1ace09918530?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&h=720&q=80" alt="Features Image">
+            </div>
+
+            <div id="tabs-with-card-3" class="hidden" role="tabpanel" aria-labelledby="tabs-with-card-item-3">
+              <img class="shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20" src="https://images.unsplash.com/photo-1598929213452-52d72f63e307?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&h=720&q=80" alt="Features Image">
+            </div>
+          </div>
+          <!-- End Tab Content -->
+        </div>
       </div>
+      <!-- End Col -->
     </div>
-  </a>
-@endforeach
+    <!-- End Grid -->
+
+    <!-- Background Color -->
+    <div class="absolute inset-0 grid grid-cols-12 size-full">
+      <div class="col-span-full lg:col-span-6 lg:col-start-7 bg-gray-100 w-full h-5/6 rounded-xl sm:h-3/4 lg:h-full dark:bg-neutral-800"></div>
+    </div>
+    <!-- End Background Color -->
   </div>
 </div>
-<!-- End Icon Blocks -->
-
-<!-- ////////////////FIM DA LISTA DE PRODUTOS//////////////// -->
+<!-- End Features -->
+<!-- //////////////FIM DETALHES ACESSÓRIOS////////////// -->
 
 <!-- INICIO MENU INFERIOR -->
 <!-- ========== FOOTER ========== -->
@@ -113,5 +160,7 @@
    
 </footer>
 <!-- ========== END FOOTER ========== -->
+
+
 
 </x-base-layout>

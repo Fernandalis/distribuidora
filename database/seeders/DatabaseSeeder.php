@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             MarcaSeeder::class,
             ProdutoSeeder::class,
             AcessorioSeeder::class,
+            BlogSeeder::class,
         ]);
     }
 }
