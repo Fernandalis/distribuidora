@@ -1,6 +1,5 @@
 <x-base-layout>
-
-<!-- Nav -->
+  <!-- Nav -->
 <div class="bg-blue-100">
   <div class="justify-between sm:gap-x-3 py-3 px-4 sm:px-6 lg:px-10 overflow-visible transition-all sm:block">
     <div class="mx-40 flex sm:flex-row sm:gap-x-6">
@@ -26,8 +25,8 @@
               opacity-0 group-hover:opacity-100 group-hover:translate-y-0 
               transform translate-y-2 transition-all duration-200 z-50">
 
-          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">Produtos</a>
-          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">Acessórios</a>
+          <a href="{{route('lista-produtos')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">Produtos</a>
+          <a href="{{route('lista-acessorios')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100">Acessórios</a>
         </div>
       </div>
 
@@ -39,68 +38,10 @@
   </div>
 </div>
 <!-- End Nav -->
-<!-- Inicio DIV scrolagem -->
-<div class="flex justify-between items-center my-15">
-
- <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg> 
-
-<div id="carousel" class="overflow-x-scroll snap-x snap-mandatory flex space-x-4 px-4 scroll-smooth border border-gray-200 max-w-180 mx-auto p-2 my-2 grid-[300px]">
-  <div class="snap-center w-4/5 h-72 flex-shrink-0">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuaT_GAXrtuqu-zCKnCLnEasDGZIiR2Opfrw&s" class="w-full h-full object-contain rounded-md shadow-lg" />
-  </div>
-  <div class="snap-center w-4/5 h-72 flex-shrink-0">
-    <img src="https://doceriapaodemel.com.br/wp-content/uploads/2024/09/d9acdf53eea5855930c3d7b3cf317217.jpeg" class="w-full h-full object-contain rounded-md shadow-lg" />
-  </div>
-  <div class="snap-center w-4/5 h-72 flex-shrink-0">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTioRSKtol9UvPh4DvQuUivB3KYKNFnk_0KEQ&s" class="w-full h-full object-contain rounded-md shadow-lg" />
-  </div>
-  <div class="snap-center w-4/5 h-72 flex-shrink-0">
-    <img src="https://doceriapaodemel.com.br/wp-content/uploads/2024/09/d9acdf53eea5855930c3d7b3cf317217.jpeg" class="w-full h-full object-contain rounded-md shadow-lg" />
-  </div>
-  <div class="snap-center w-4/5 h-72 flex-shrink-0">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTioRSKtol9UvPh4DvQuUivB3KYKNFnk_0KEQ&s" class="w-full h-full object-contain rounded-md shadow-lg" />
-  </div>
-</div>
-
- <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg>
-
-<!-- Fim div da grade de scrolagem -->
-</div>
-
-<script>
-  const carousel = document.getElementById('carousel');
-  const items = carousel.querySelectorAll('.snap-center');
-  let currentIndex = 0;
-  const intervalTime = 3000; // tempo em ms (3s)
-
-  function moveToItem(index) {
-    const item = items[index];
-    const itemOffset = item.offsetLeft;
-    const itemWidth = item.offsetWidth;
-    const containerWidth = carousel.clientWidth;
-
-    const scrollPosition = itemOffset - (containerWidth - itemWidth) / 2;
-
-    carousel.scrollTo({
-      left: scrollPosition,
-      behavior: 'smooth'
-    });
-  }
-
-  function nextItem() {
-    currentIndex++;
-    if (currentIndex >= items.length) {
-      currentIndex = 0;
-    }
-    moveToItem(currentIndex);
-  }
-
-  setInterval(nextItem, intervalTime);
-</script>
 
 <!-- Inicio div base da História -->
  <div>
-  <div class=" bg-blue-100">
+  <div>
     <p class="mx-45 my-15" style="font-size: 35px;">Nossa História</p>
   </div>
   <!-- Div do quadro -->
@@ -122,28 +63,13 @@
 <!-- FIM DIV base da História -->
 </div>
 
-<!-- Inicio Div parte de baixo do site -->
- <div>
-  <div class="bg-blue-100"> <p class="ml-40 font-semibold" style="font-size: 30px">Saiba Mais:</p></div>
-  <div class="grid grid-cols-3  justify-between ml-45 my-20"> 
-    <div><img class="rounded-full w-50" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT12L6BDCyb0ufq5k2SqI9z5FyQA5mBCsV_2Cj55DyPhQ&s" alt="">
-   <p><a class=" inline-flex gap-x-2 text-black hover:text-blue-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200 my-5 font-semibold " style="white-space: nowrap;" href="#">Veja nosso catálogo online</a></p>
-  </div>
-    <div><img class="ml-5 w-50" src="https://lh3.googleusercontent.com/rd-gg/AIJ2gl8uvr9f6fiS0R7a1QAtG9KcTLjVxSBvrc4Dmda0KtNG6tm2iLUjTLjVlNj9o4j_MDra9QHwQULJSlgs5bARxQcmvcx2wVB_NCfuZ_Uk3mmF4E87zixke327rb8D6fWWiegiZ7QjxRNYjdtqGqF-ZDe0wcAnspuiIhl7pnClx2LdNwtFXd9SM7RYjfHmmWiKJS8_1ZBIAG7JPW3mmVnq9an_zqmaaPhit9mwNQLcaqZrUWH_WZ297obfQAD5wuPy2G3k8bjYVWsqsuRC2G98MhSLl8PmV0gV37j1AywzrL8wGZGvbEgfMriW-NUcieV6WNQshn4NwBSzfmuUjq8cHwuOvECGoaiCa79EnWNEbbC3nm6t96nMczb81-zoR_SwoY8p8OwFkltgJwweg4UCCdGOeVsZyIFrLnv2UZDvIMpBE4oU7vy3_dZlQ8ZTpI_1UAL71rbAXlzt42NjMrB-tsuIMOBVBs5SyMOqJBnYpgi8Rv9tqqSPQSif92pkDiTz6D2c0KBW6UV_LlBomw0MkwHEM5Q6ANXASpxJZ1l8pyVeJzznCQ5FfZwHaHxMDXd-TtJztLBwOTSsJN8jxZXCSt5DqOgJqYUF06_vJBNiGTiUX7J2x7KahOdmFguWSmSG3EumDzfUI9v4VOov4wTCrdItU2QPVEMt5WxMifaLkfkda4ZbtFT6m7zdjH0RpEPvm0ZwNBY6O1h8P5LaZQQLqc0Jvp1Z82O8eV7_ce7DADLggjyes43LiJahh7AxnOzjPzU43Fy6Syu2BX1mzDcVCdZaJe6FFferjfG9d5WGojkPRQ1PzBxl3291R2lejhnz2ZEgdDOXw9ULXfi3GzLgmolNIKz0CHhWZE0hrpLxgXLFYZwv7ykawQ5qKaW-7eCFqftwS_bvpGiC4-GV_-Sj9d4txAP91AyjFiiM6oSnncg3R4yzM8njUDOgxSyoiPioVIAWWDkf11XqJawt4uHIJCL1fKbsWpd8cg7_HpE0Nrg7PbCV6PkNIlXO_HOHefkArYh2gbKLsh7GsPMmLjs2_TwU6wmILNhVkfHMOjJ_wQ3GCfFYdXrjqvSOWSNdpMVjnVAyr6G3rrfqxYYAcxqHjRVie-OccwmWPi3l8jEK4TcQGelUv9Y-SMrL8_cyRXCqNVhN-m6L-WGAkomZMzVi0zkbVzBknEI6HnC4d7BFcYmHmwMjUIvfyMMr2WgdlWoPlOGYJnNvtFMi-CPlswYhl-6bxxqVdsqVHCx7n8QXyxdOqSuspIGlZVLxDHd5EfAb49fsUt_mrlXbZOoQ7O8G63nCghQX6wPvjlzsvYfbw00RYMecSDqOmHyih0lkKhUV6ESAbCeU6MqwA1WZnBoN_bCOUxxp=s1024-rj" alt="">
-     <p><a class=" inline-flex gap-x-2 text-black hover:text-blue-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200 my-5 font-semibold " style="white-space: nowrap;" href="#">Marcas com as quais trabalhamos</a></p>
-  </div>
-    <div><img class="ml-10 rounded-full my-10 w-50" src="https://media.istockphoto.com/id/451169621/pt/vetorial/mapa-com-um-alfinete.jpg?s=612x612&w=0&k=20&c=ULqu5iz_rdudV5eQYTdPgrz_Ui9rFcwR6OWOeE2XDys=" alt=""><p><a class=" inline-flex gap-x-2 text-black hover:text-blue-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200 my-5 font-semibold mx-25 " style="white-space: nowrap;" href="#">Localização</a></p></div>
-  </div>
- <!-- FIM DIV parte de baixo do site -->
- </div>
-
 <!-- INICIO MENU INFERIOR -->
 <!-- ========== FOOTER ========== -->
 <footer class="">
   <!-- Grid -->
   <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mb-10 bg-gray-200 h-60">
     <div class="col-span-full hidden lg:col-span-1 lg:block my-10">
-      <a class=" font-semibold text-xl  dark:text-white mx-8" href="{{route('home')}}">Disk Água do Eduardo</a>
+      <a class=" font-semibold text-xl  dark:text-white mx-8" href="#">Disk Água do Eduardo</a>
     </div>
     <!-- End Col -->
     <div class="my-15 mx-15">
@@ -184,4 +110,5 @@
    
 </footer>
 <!-- ========== END FOOTER ========== -->
+
 </x-base-layout>
